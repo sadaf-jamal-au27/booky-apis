@@ -6,11 +6,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Book = require('./models/book');
+const PORT = process.env.PORT || 3030;
 const dotenv = require('dotenv');
 dotenv.config()
 
 const app = express();
-const port = 4000;
+
 
 
 // Establish a database connection using async/await and try...catch
@@ -84,6 +85,6 @@ app.delete('/books/:id', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
